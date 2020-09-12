@@ -1,16 +1,14 @@
-# This is a sample Python script.
+from base64 import b64encode, b64decode
 
-# Press Shift+F10 to execute it or replace it with your code.
-# Press Double Shift to search everywhere for classes, files, tool windows, actions, and settings.
+hex_string = "49276d206b696c6c696e6720796f757220627261696e206c696b65206120706f69736f6e6f7573206d757368726f6f6d"
 
-
-def print_hi(name):
-    # Use a breakpoint in the code line below to debug your script.
-    print(f'Hi, {name}')  # Press Ctrl+F8 to toggle the breakpoint.
+def hex_to_base64(string):
+    base64 = b64encode(bytes.fromhex(string)).decode()
+    return base64
 
 
-# Press the green button in the gutter to run the script.
-if __name__ == '__main__':
-    print_hi('PyCharm')
+base64_string = hex_to_base64(hex_string)
 
-# See PyCharm help at https://www.jetbrains.com/help/pycharm/
+print(base64_string)
+
+print(b64decode(base64_string).decode('utf-8'))
